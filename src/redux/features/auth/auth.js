@@ -3,7 +3,7 @@ import axios from "axios";
 import {API} from "../../../constants";
 
 
-const initialState = {
+let initialState = {
     token: localStorage.getItem("token") ? localStorage.getItem("token") : null,
     id: null,
     user: null,
@@ -43,13 +43,17 @@ export const authSlice = createSlice({
     name: "auth",
     initialState,
     reducers: {
-        logout: () => {
+        logout: (state, action) => {
             localStorage.removeItem("token");
-            initialState.token = null;
-            initialState.id = null;
-            initialState.user = null;
-            initialState.loading = null;
-            initialState.error = null;
+            state.token = null;
+            state.id = null;
+            state.user = null;
+            state.loading = false;
+            state.error = null;
+
+        },
+        updateUser: (state, action) => {
+          state.user = action.payload
         }
     },
     extraReducers: {
@@ -78,5 +82,5 @@ export const authSlice = createSlice({
     }
 
 })
-
+export const { logout, updateUser } = authSlice.actions;
 export default authSlice.reducer;

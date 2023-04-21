@@ -1,7 +1,55 @@
-// import React from 'react'
+import {useState} from 'react'
 import Contact_image from "../assets/231.png";
+import emailjs from 'emailjs-com';
+import Swal from "sweetalert2";
 
 const Contact = () => {
+  const [fromName, setFromName] = useState("");
+  const [email, setEmail] = useState("");
+  const [toName, setToName] = useState("")
+  const [message, setMessage] = useState("")
+  const [loading, setLoading] = useState(false)
+
+  const submitMessage = async () => {
+    setLoading(true)
+    console.log(process.env.SERVICE_ID, process.env.TEMPLATE_ID)
+    try{
+      const templateParams = {
+        from_name: fromName,
+        to_name: 'Muhammad Zaid',
+        message: message,
+        from_email: email,
+      };
+      const response = await  emailjs.send("service_7nkbqwi", "template_7d4rpa2", templateParams, 'DcSaQssavfkDP9nb3')
+      console.log(response)
+      setLoading(false)
+      setFromName("");
+      setEmail("");
+      setMessage("")
+      if(response.status === 200) {
+        Swal.fire({
+          icon: 'success',
+          title: 'Success',
+          text: "Message sent successfully!!!",
+          confirmButtonColor: "#32CD30",
+          confirmButtonText: "Ok!",
+        })
+      }
+      else{
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: "Something went wrong!!!",
+          confirmButtonColor: "#DD6B55",
+          confirmButtonText: "Ok!",
+        })
+      }
+    }
+    catch(err) {
+      console.log(err)
+    }
+  }
+
   return (
     <div className="flex flex-col justify-center " id="contacts">
       <div className="flex items-center justify-center mt-16">
@@ -34,6 +82,8 @@ const Contact = () => {
                 type="email"
                 className="bg-[#2e2e2e] border-2 focus:outline-none focus:ring-1 ring-cyan-600 focus:border-cyan-600  w-full sm:w-[500px] p-1 rounded-md border-cyan-700 outline-none"
                 placeholder="Enter email..."
+                onChange={(e) => setEmail(e.target.value)}
+                value={email}
               />
             </div>
             <div
@@ -41,12 +91,14 @@ const Contact = () => {
             "
             >
               <label htmlFor="" className="text-gray-300 text-xl py-1">
-                Subject
+                Name
               </label>
               <input
                 type="text"
                 className="bg-[#2e2e2e] border-2 focus:outline-none focus:ring-1 ring-cyan-600 focus:border-cyan-600  w-full sm:w-[500px] p-1 rounded-md border-cyan-700 outline-none"
-                placeholder="Enter subject..."
+                placeholder="Enter Name..."
+                onChange={(e) => setFromName(e.target.value)}
+                value={fromName}
               />
             </div>
             <div
@@ -61,11 +113,13 @@ const Contact = () => {
                 rows="10"
                 className="bg-[#2e2e2e] border-2 focus:outline-none focus:ring-1 ring-cyan-600 focus:border-cyan-600  w-full sm:w-[500px] p-1 rounded-md border-cyan-700 outline-none"
                 placeholder="Enter message..."
+                onChange={(e) => setMessage(e.target.value)}
+                value={message}
               />
             </div>
           </div>
-          <button className="mt-5  bg-gradient-to-br from-teal-600 to-sky-700 py-3 px-2 sm:px-3 rounded-sm tracking-wider hover:bg-[#126f72] duration-100 ">
-            Submit Message
+          <button className={`mt-5  bg-gradient-to-br from-teal-600 to-sky-700 py-3 px-2 sm:px-3 rounded-sm tracking-wider hover:bg-[#126f72] duration-100 `} disabled={loading} onClick={submitMessage}>
+            {loading ? "Loading..." : "Submit Message"}
           </button>
         </div>
       </div>

@@ -15,7 +15,7 @@ const Navbar = ({ navController, nav }) => {
     <>
       <div className="hidden sm:flex  min-w-full bg-[#1a1a18] h-[65px] items-center justify-between px-10 z-40 top-0 fixed shadow-lg">
         <div className="text-xl text-gray-200 align-middle text-start flex justify-start items-center">
-          <h1 className="font-bold align-middle">XFOLIO.</h1>
+          <h1 className="font-bold align-middle">ZFOLIO.</h1>
         </div>
         <div className="text-gray-300">
           <ul className="flex justify-evenly ml-14">

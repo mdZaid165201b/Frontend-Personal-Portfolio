@@ -1,8 +1,10 @@
 import { projectsData } from "../assets/data";
 import Project from "./Project";
 import { Link } from "react-router-dom";
+import {useSelector} from "react-redux";
 
 const Projects = ({ nav }) => {
+    const {projects} = useSelector((state) => state.project);
   //   const [projHover, setProjHover] = useState(false);
   return (
     !nav && (
@@ -13,14 +15,16 @@ const Projects = ({ nav }) => {
           </h1>
         </div>
         <div className="w-screen">
-          <div className="my-0 sm:px-32 flex flex-wrap justify-between">
-            {projectsData.map((element) => (
-              <Project data={element} />
-            ))}
+          <div className=" flex justify-center items-center">
+              <div className="my-0 sm:px-40 flex  flex-wrap">
+                  {projects.map((element) => (
+                      <Project data={element} />
+                  ))}
+              </div>
           </div>
           {projectsData.length >= 6 ? (
             <div className="flex justify-center mt-10">
-              <Link to="projects">
+              <Link to="AllProjects">
                 <button className="p-3 bg-gradient-to-br from-green-800 to-sky-700 text-gray-300 rounded-md tracking-wider hover:from-sky-800 hover:to-green-600">
                   View More
                 </button>

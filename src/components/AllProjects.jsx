@@ -3,12 +3,15 @@ import Project from "./Project";
 import { projectsData } from "../assets/data";
 import Footer from "./Footer";
 import Navbar from "../components/Navbar";
+import {useSelector} from "react-redux";
+
 const AllProjects = () => {
   const [nav, setNav] = useState(false);
   const handleNav = () => {
     setNav(!nav);
     console.log(nav);
   };
+  const {projects} = useSelector(state => state.project);
   return (
     <>
       <Navbar navController={handleNav} nav={nav} />
@@ -20,7 +23,7 @@ const AllProjects = () => {
       </div>
       <div className="w-screen">
         <div className="my-0 sm:px-32 flex flex-wrap justify-between">
-          {projectsData.map((element) => (
+          {projects.map((element) => (
             <Project data={element} />
           ))}
         </div>

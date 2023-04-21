@@ -1,32 +1,35 @@
-import {useState} from "react";
+import React, {useState} from "react";
 import profImg from "../assets/img.jpg";
 import { BiMessageSquareAdd } from "react-icons/bi";
 import Modal from "../components/Modal";
+import { useSelector } from "react-redux"
 
 const AdminProfile = () => {
   const [openModal, setModal] = useState(false);
+  const { user }  = useSelector((state) => state.auth);
+console.log(user)
 
   return (
     <>
       <div className="w-full">
         <div className=" flex justify-center">
           <div className="flex flex-col">
-            <div className="w-[180px] h-[180px] rounded-full relative my-4">
-              <div className="border-4 border-x-emerald-900 border-y-cyan-900 w-[180px] h-[180px] rounded-full flex items-center">
-                <img
-                  src={profImg}
-                  className="rounded-full filter contrast-125 absolute inset-0 border-4 border-x-emerald-900 border-y-cyan-900 "
-                />
-              </div>
-              <div className="opacity-0 hover:opacity-100 absolute inset-0 flex items-center justify-center p-3">
-                <input
-                  type="file"
-                  className="bg-gray-600 text-white text-center  rounded-md cursor-pointer hover:bg-gray-700"
-                />
-              </div>
-            </div>
-            <div className=" flex justify-center text-gray-200 my-3">
-              <h1 className="text-2xl  tracking-wider">Muhammad Zaid</h1>
+            {/*<div className="w-[180px] h-[180px] rounded-full relative my-4">*/}
+            {/*  <div className="border-4 border-x-emerald-900 border-y-cyan-900 w-[180px] h-[180px] rounded-full flex items-center">*/}
+            {/*    <img*/}
+            {/*      src={user.remaining.profilePic ? user.remaining.profilePic["url"] : profImg}*/}
+            {/*      className="rounded-full filter contrast-125 relative inset-0 border-4 border-x-emerald-900 border-y-cyan-900 object-cover"*/}
+            {/*    />*/}
+            {/*  </div>*/}
+            <img
+                className="rounded-full filter contrast-125 object-cover bottom w-[160px] h-[160px] border-4 border-x-emerald-900 border-y-cyan-900 bg-cover"
+                src={user.remaining.profilePic["url"]}
+                alt="person"
+            />
+
+            {/*</div>*/}
+            <div className=" flex justify-center text-gray-200 my-3 ">
+              <h1 className="text-2xl  tracking-wider text-center">{user.remaining.firstName}</h1>
             </div>
           </div>
         </div>
@@ -47,7 +50,7 @@ const AdminProfile = () => {
                   <h1>First Name</h1>
                 </div>
                 <div className="text-gray-200 text-xl bg-[#2a2822] p-3 tracking-wider flex flex-2 w-full text-center">
-                  <h1>Muhammad Zaid</h1>
+                  <h1>{user.remaining.firstName}</h1>
                 </div>
               </div>
             </div>
@@ -57,7 +60,7 @@ const AdminProfile = () => {
                   <h1>Last Name</h1>
                 </div>
                 <div className="text-gray-200 text-xl bg-[#2a2822] p-3 tracking-wider flex flex-2 w-full text-center">
-                  <h1>Muhammad Naeem</h1>
+                  <h1>{user.remaining.lastName}</h1>
                 </div>
               </div>
             </div>
@@ -68,8 +71,9 @@ const AdminProfile = () => {
                 </div>
                 <div className="text-gray-200 text-xl bg-[#2a2822] p-3 tracking-wider flex flex-2 w-full text-center">
                   <h1>
-                    Hello, I'm Muhammad Zaid a Fullstack developer based in
-                    Pakistan{" "}
+                    {/*Hello, I'm Muhammad Zaid a Fullstack developer based in*/}
+                    {/*Pakistan{" "}*/}
+                    {user.remaining.tagLine}
                   </h1>
                 </div>
               </div>

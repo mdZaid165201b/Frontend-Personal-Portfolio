@@ -37,10 +37,12 @@ const Footer = () => {
       <div className="">
         <div className="flex justify-center">
           <div className="flex justify-evenly my-3">
-            <FaGithub  size={25} className="mx-4 text-gray-200 hover:text-gray-500/90 duration-150 cursor-pointer" />
-            <FaLinkedin  size={25} className="mx-4 text-gray-200 hover:text-gray-500/90 duration-150 cursor-pointer" />
+            <a href="https://github.com/mdZaid165201b" target="_blank"><FaGithub  size={25} className="mx-4 text-gray-200 hover:text-gray-500/90 duration-150 cursor-pointer" /></a>
+            <a href="https://www.linkedin.com/in/muhammadzaid8920/" target="_blank">
+              <FaLinkedin  size={25} className="mx-4 text-gray-200 hover:text-gray-500/90 duration-150 cursor-pointer"  />
+            </a>
             {/* <FaInstagramSquare  size={25} className="mx-4 text-gray-200 hover:text-red-400/80" /> */}
-            <BsFacebook  size={25} className="mx-4 text-gray-200 hover:text-gray-500/90 duration-150 cursor-pointer" />
+            <a href="https://www.facebook.com/ZaidNaeem6" target="_blank"><BsFacebook  size={25} className="mx-4 text-gray-200 hover:text-gray-500/90 duration-150 cursor-pointer" /></a>
           </div>
         </div>
         <span class="block text-sm text-gray-500 sm:text-center dark:text-gray-400">

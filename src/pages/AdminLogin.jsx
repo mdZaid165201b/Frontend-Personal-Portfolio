@@ -37,17 +37,23 @@ const AdminLogin = () => {
     // console.log(allUserData);
     const [userState, setUser] = useState(user ? user : null);
     const handleLogin = () => {
+        // if (event.key === "Enter" || event.code === 13) {
+        //     dispatch(loginUser({email: data.email, password: data.password}));
+        //     if (error && loading) {
+        //         navigate("/admin/dashboard/home");
+        //     }
+        // }
+        // console.log(event)
         dispatch(loginUser({email: data.email, password: data.password}));
-        if(error && loading) {
+        if (error && loading) {
             navigate("/admin/dashboard/home");
         }
     }
     useEffect(() => {
-        if(user) {
+        if (user) {
             navigate("/admin/dashboard/home");
         }
-    }, [navigate,user])
-
+    }, [navigate, user])
 
 
     return (<div className=" min-h-screen flex flex-col">
@@ -84,6 +90,11 @@ const AdminLogin = () => {
                                 onChange={(e) => setData({
                                     ...data, password: e.target.value
                                 })}
+                                onKeyUp={(e) => {
+                                    if(e.key === "Enter" || e.code === 13) {
+                                        handleLogin()
+                                    }
+                                }}
                             />
 
 

@@ -1,0 +1,18 @@
+h1:not([class]) {
+    color: white;
+}
+h2:not([class]) {
+    color: white;
+}
+h3:not([class]) {
+    color: white;
+}
+h4:not([class]) {
+    color: white;
+}
+h5:not([class]) {
+    color: white;
+}
+h6:not([class]) {
+    color: white;
+}

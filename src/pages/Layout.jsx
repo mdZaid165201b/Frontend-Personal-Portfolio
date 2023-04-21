@@ -1,8 +1,14 @@
-import React from "react";
+import React, {useEffect} from "react";
 import AdminSidebar from "../components/AdminSidebar";
 import { Outlet } from "react-router-dom";
+import {fetchProjects} from "../redux/features/project/project";
+import {useDispatch} from "react-redux";
 
 const Layout = () => {
+  const dispatch = useDispatch()
+  useEffect(() => {
+    dispatch(fetchProjects());
+  }, [])
   return (
     <div className="border border-green-700 max-w-screen h-screen ">
       <div className="flex">

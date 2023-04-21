@@ -6,6 +6,9 @@ import { GoDeviceMobile } from "react-icons/go";
 
 import project1 from "./test.png";
 import project2 from "./test2.png";
+import {useSelector} from "react-redux";
+
+
 
 export const servicesData = [
   {
@@ -72,6 +75,7 @@ export const projectsData = [
     stack: ["react.js", "node.js", "nest.js", "mongoDB", "express.js"],
   },
 ];
+
 
 export const OverviewData = [
   {
