@@ -61,10 +61,10 @@ const ProjectDetailPage = () => {
                         </CarouselProvider>
                     </div>
                 </div>
-                <div className="text-gray-200 text-2xl">
                     <hr className="border-2 border-gray-700"/>
+                <div className="text-gray-200 text-xl flex ">
                     <div
-                        className=" rounded-md p-6 prose lg:prose-xl text-white"
+                        className=" rounded-md p-6 prose lg:prose-lg text-white"
                         dangerouslySetInnerHTML={{__html: data.description}}
                     ></div>
                 </div>
