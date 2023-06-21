@@ -7,7 +7,7 @@ const Footer = () => {
     <footer class="p-4 bg-white rounded-lg shadow md:px-6 md:py-8 dark:bg-gray-900/5 mt-12">
       <div class="sm:flex sm:items-center sm:justify-between">
         <div className="text-xl text-gray-200 align-middle text-start flex justify-start items-center">
-          <h1 className="font-bold align-middle">XFOLIO.</h1>
+          <h1 className="font-bold align-middle">ZFOLIO.</h1>
         </div>
         <ul class="flex flex-wrap items-center mb-6 text-sm text-gray-500 sm:mb-0 dark:text-gray-400">
           <li>
@@ -48,7 +48,7 @@ const Footer = () => {
         <span class="block text-sm text-gray-500 sm:text-center dark:text-gray-400">
           © {" "}
           <a href="" class="hover:underline">
-            XFOLIO
+            ZFOLIO
           </a>
           . All Rights Reserved.
         </span>

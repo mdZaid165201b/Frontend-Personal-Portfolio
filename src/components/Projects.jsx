@@ -5,6 +5,7 @@ import {useSelector} from "react-redux";
 
 const Projects = ({ nav }) => {
     const {projects} = useSelector((state) => state.project);
+    console.log(projects)
   //   const [projHover, setProjHover] = useState(false);
   return (
     !nav && (
@@ -16,7 +17,7 @@ const Projects = ({ nav }) => {
         </div>
         <div className="w-screen">
           <div className=" flex justify-center items-center">
-              <div className="my-0 sm:px-40 flex  flex-wrap">
+              <div className="my-0 sm:px-40  flex flex-wrap justify-center">
                   {projects.map((element) => (
                       <Project data={element} />
                   ))}

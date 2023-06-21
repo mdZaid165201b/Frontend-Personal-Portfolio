@@ -21,7 +21,8 @@ const Modal = ({isVisible, onClose, data}) => {
         title: editableData !== null ? editableData.projectName : "",
         assign: editableData !== null ? editableData.assign : "",
         status: editableData !== null ? editableData.status : "",
-        deadline: editableData !== null ? editableData.deadline : ""
+        deadline: editableData !== null ? editableData.deadline : "",
+        projectLink: editableData !== null ? editableData.projectLink : "",
     })
     // console.log("test projectData", projectData)
     const [files, setFiles] = useState([]);
@@ -41,13 +42,14 @@ const Modal = ({isVisible, onClose, data}) => {
                 title: editableData.projectName,
                 assign: editableData.assign,
                 status: editableData.status,
+                projectLink: editableData.projectLink,
                 deadline: moment(editableData.deadline).format("YYYY-MM-DD")
             })
             // console.log("project Data use Effect", projectData)
         }
     }, [editableData])
     const validateInput = (content, files, projectInfo) => {
-        if (content === "" || files === 0 || projectInfo.title === "" || projectInfo.assign === "" || projectInfo.status === "" || projectInfo.deadline === "") {
+        if (content === "" || files === 0 || projectInfo.title === "" || projectInfo.assign === "" || projectInfo.status === "" || projectInfo.deadline === "" || projectInfo.projectLink === "") {
 
             return false;
         } else {
@@ -73,9 +75,10 @@ const Modal = ({isVisible, onClose, data}) => {
                 formData.append("assign", projectData.assign)
                 formData.append("status", projectData.status)
                 formData.append("deadline", projectData.deadline)
+                formData.append("projectLink", projectData.projectLink)
                 formData.append("description", content)
                 dispatch(updateProject({formData, token, id: data._id}));
-                setProjectData({title: "", assign: "", status: "", deadline: ""})
+                setProjectData({title: "", assign: "", status: "", deadline: "", projectLink: ""})
                 setContent("");
                 setFiles([]);
 
@@ -99,9 +102,10 @@ const Modal = ({isVisible, onClose, data}) => {
                 formData.append("assign", projectData.assign)
                 formData.append("status", projectData.status)
                 formData.append("deadline", projectData.deadline)
+                formData.append("projectLink", projectData.projectLink)
                 formData.append("description", content)
                 dispatch(createProject({formData, token}));
-                setProjectData({title: "", assign: "", status: "", deadline: ""})
+                setProjectData({title: "", assign: "", status: "", deadline: "", projectLink: ""})
                 setContent("");
                 setFiles([]);
 
@@ -167,6 +171,22 @@ const Modal = ({isVisible, onClose, data}) => {
                                 ...projectData, assign: e.target.value
                             })}
                             value={projectData.assign}
+                        />
+                    </div>
+                </div>
+                <div className="mb-7">
+                    <div className="flex items-center">
+                        <label className="text-gray-200 mx-5 w-[120px] tracking-wide">
+                            Project Link
+                        </label>
+                        <input
+                            className="bg-[#2a2822]  block border-b-2 border-green-800 focus:outline-none focus:border-green-500 text-gray-200  w-full p-1"
+                            type="text"
+                            placeholder="Enter Name..."
+                            onChange={(e) => setProjectData({
+                                ...projectData, projectLink: e.target.value
+                            })}
+                            value={projectData.projectLink}
                         />
                     </div>
                 </div>

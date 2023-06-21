@@ -22,6 +22,7 @@ const AdminHome = () => {
         else setFilteredProjects(projects)
     }
     const OverviewFiltered = () => {
+        console.log({projects})
         const pendingProjects = projects.filter(current => current.status === "Pending");
         setPendingProject(pendingProjects.length)
         const activeProjects = projects.filter(current => current.status === "Active");

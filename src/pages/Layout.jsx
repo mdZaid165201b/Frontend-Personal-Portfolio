@@ -10,7 +10,7 @@ const Layout = () => {
     dispatch(fetchProjects());
   }, [])
   return (
-    <div className="border border-green-700 max-w-screen h-screen ">
+    <div className="max-w-screen h-screen ">
       <div className="flex">
         <AdminSidebar />
         {/* Navbar and main content area */}

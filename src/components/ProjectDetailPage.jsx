@@ -6,6 +6,8 @@ import "tailwindcss/tailwind.css";
 import {useLocation} from "react-router-dom";
 import {CarouselProvider, Slider, Slide, ButtonBack, ButtonNext} from 'pure-react-carousel';
 import 'pure-react-carousel/dist/react-carousel.es.css';
+import {AiOutlineLink} from "react-icons/ai";
+import {Link} from "react-router-dom";
 
 
 const ProjectDetailPage = () => {
@@ -28,6 +30,11 @@ const ProjectDetailPage = () => {
                     <div className="bg-green-700 mx-5 p-1 sm:p-2 text-sm rounded tracking-wider">
                         {data.status}
                     </div>
+                    <div className=" p-1 sm:p-2 text-sm rounded tracking-wider">
+                    <Link to={data.projectLink} target="_blank">
+                        <AiOutlineLink size={20} className="hover:text-gray-400 "/>
+                    </Link>
+                    </div>
                 </div>
 
 
@@ -42,7 +49,7 @@ const ProjectDetailPage = () => {
                             <Slider className="max-h-[450px] w-full sm:mx-36 object-contain">
                                 {data.projectImages.map((current, index) => (
                                     <Slide index={index}><img src={current["url"]}
-                                                              className="object-contain h-[500px] w-[700px]"/></Slide>))}
+                                                              className="object-contain w-screen px-[10px] sm:h-[500px] sm:w-[700px]"/></Slide>))}
 
                             </Slider>
                             <div className="my-4 flex justify-center">
@@ -52,21 +59,6 @@ const ProjectDetailPage = () => {
                                     className="text-gray-200 bg-[#2d2b27] mx-4 px-3 py-2 tracking-wider rounded-sm shadow-lg hover:bg-[#201e1a] duration-75 active:bg-inherit disabled:opacity-30 disabled:hover:cursor-not-allowed">Next</ButtonNext>
                             </div>
                         </CarouselProvider>
-                    </div>
-
-
-                    <div
-                        className="inline-block sm:h-[480px] sm:min-h-[1em] sm:w-0.5 self-stretch bg-neutral-100 opacity-100 dark:opacity-50 ml-12"></div>
-                    <div className="flex flex-col mx-5 text-gray-200">
-                        <h1 className="text-2xl sm:text-3xl font-mono">Tech Stack</h1>
-                        <div className="flex flex-col">
-                            <ul className="list-disc mx-10 my-5 text-lg font-mono leading-10">
-                                <li className="tracking-wider">Reactjs</li>
-                                <li className="tracking-wider">MongoDB</li>
-                                <li className="tracking-wider">Nodejs</li>
-                                <li className="tracking-wider">Expressjs</li>
-                            </ul>
-                        </div>
                     </div>
                 </div>
                 <div className="text-gray-200 text-2xl">

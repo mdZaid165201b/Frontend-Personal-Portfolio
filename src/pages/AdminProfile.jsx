@@ -33,7 +33,7 @@ console.log(user)
             </div>
           </div>
         </div>
-        <hr class="h-px my-8 mx-7 bg-gray-200 border-0 dark:bg-gray-700" />
+        <hr className="h-px my-8 mx-7 bg-gray-200 border-0 dark:bg-gray-700" />
         <div className="mx-10 flex justify-center flex-col">
           <div className="text-gray-200 flex justify-center mb-8">
             <h1 className="text-3xl tracking-wider">Profile Information</h1>

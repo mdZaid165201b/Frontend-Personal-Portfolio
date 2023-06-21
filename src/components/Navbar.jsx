@@ -1,9 +1,11 @@
 import { AiOutlineClose } from "react-icons/ai";
 import { FaBars } from "react-icons/fa";
 import { RxHamburgerMenu } from "react-icons/rx";
-import { BsSun } from "react-icons/bs";
+import { BsSun, BsDownload } from "react-icons/bs";
 import { Link } from "react-router-dom";
+import { Link as ScrollLink } from "react-scroll";
 import { NavHashLink } from "react-router-hash-link";
+import Resume from "../assets/resume.pdf";
 
 const Navbar = ({ navController, nav }) => {
   // const [nav, setNav] = useState(false);
@@ -14,54 +16,94 @@ const Navbar = ({ navController, nav }) => {
   return (
     <>
       <div className="hidden sm:flex  min-w-full bg-[#1a1a18] h-[65px] items-center justify-between px-10 z-40 top-0 fixed shadow-lg">
-        <div className="text-xl text-gray-200 align-middle text-start flex justify-start items-center">
-          <h1 className="font-bold align-middle">ZFOLIO.</h1>
-        </div>
+        <Link to="/">
+          <div className="text-xl text-gray-200 align-middle text-start flex justify-start items-center hover:pointer">
+            <h1 className="font-bold align-middle">ZFOLIO.</h1>
+          </div>
+        </Link>
         <div className="text-gray-300">
           <ul className="flex justify-evenly ml-14">
-            <NavHashLink to="/#hero" smooth>
-              <li className=" px-5 text-lg mx-3 cursor-pointer hover:text-gray-100 duration-100">
-                Home
-              </li>
-            </NavHashLink>
-            <NavHashLink to="/#services" smooth>
-              <li className=" px-5 text-lg mx-3 cursor-pointer hover:text-gray-100 duration-100">
-                Services
-              </li>
-            </NavHashLink>
-            <NavHashLink to="/#projects" smooth>
-              <li className=" px-5 text-lg mx-3 cursor-pointer hover:text-gray-100 duration-100">
-                Projects
-              </li>
-            </NavHashLink>
-            <NavHashLink to="/#contacts" smooth>
-              <li className=" px-5 text-lg mx-3 cursor-pointer hover:text-gray-100 duration-100">
-                Contact
-              </li>
-            </NavHashLink>
-            {/* <li className=" px-5 text-lg mx-3 cursor-pointer hover:text-gray-100 duration-100">
-              Blog
-            </li> */}
+            <ScrollLink
+              to="hero"
+              spy={true}
+              smooth={true}
+              offset={-100}
+              duration={500}
+            >
+              <NavHashLink to="/">
+                <li className=" px-5 text-lg mx-3 cursor-pointer hover:text-gray-100 duration-100">
+                  Home
+                </li>
+              </NavHashLink>
+            </ScrollLink>
+            <ScrollLink
+              to="skills"
+              spy={true}
+              smooth={true}
+              offset={-100}
+              duration={500}
+            >
+              <NavHashLink to="/#skills" smooth>
+                <li className=" px-5 text-lg mx-3 cursor-pointer hover:text-gray-100 duration-100">
+                  Skills
+                </li>
+              </NavHashLink>
+            </ScrollLink>
+            <Link to="/#projects">
+              <ScrollLink
+                to="projects"
+                spy={true}
+                smooth={true}
+                offset={-100}
+                duration={500}
+              >
+                <NavHashLink to="/#projects">
+                  <li className=" px-5 text-lg mx-3 cursor-pointer hover:text-gray-100 duration-100">
+                    Projects
+                  </li>
+                </NavHashLink>
+              </ScrollLink>
+            </Link>
+            <ScrollLink
+              to="contacts"
+              spy={true}
+              smooth={true}
+              offset={-100}
+              duration={500}
+            >
+              <NavHashLink to="/#contacts">
+                <li className=" px-5 text-lg mx-3 cursor-pointer hover:text-gray-100 duration-100">
+                  Contact
+                </li>
+              </NavHashLink>
+            </ScrollLink>
           </ul>
         </div>
         <div className="w-[150px] flex justify-between items-center">
           <BsSun className="text-gray-200 cursor-pointer" size={20} />
-          <button className="bg-gray-300 md:p-1 md:px-4 md:rounded-2xl text-[#161513] font-semibold">
-            LET'S TALK
-          </button>
+          <Link to={Resume} target="_blank">
+            <div className="bg-gray-300 md:rounded-2xl flex justify-center hover:bg-gray-400 hover:cursor-pointer duration-150">
+              <button className=" md:p-1 md:px-2 md:rounded-2xl text-[#161513] font-semibold flex justify-center">
+                Resume
+              </button>
+              <BsDownload className="my-auto mx-[8px] flex text-center justify-center" />
+            </div>
+          </Link>
         </div>
       </div>
       {/* mobile view */}
       <div
         className={`${
           nav &&
-          "z-40 bg-gradient-to-br p-[3px] from-sky-700/70 to-teal-700 flex flex-col w-screen h-screen py-20 px-5 duration-200 sm:hidden"
+          "z-40 bg-gradient-to-br p-[3px] from-sky-900/70 to-teal-700 flex flex-col w-screen h-screen py-20 px-5 duration-200 sm:hidden"
         }`}
       >
         <div className="flex items-center justify-between relative -top-16 sm:hidden">
-          <div className="text-left text-xl text-gray-200 ">
-            <h1 className="font-bold align-middle">XFOLIO.</h1>
-          </div>
+          <Link to="/">
+            <div className="text-left text-xl text-gray-200 ">
+              <h1 className="font-bold align-middle">ZFOLIO.</h1>
+            </div>
+          </Link>
 
           {nav ? (
             <AiOutlineClose size={23} color="white" onClick={navController} />
@@ -73,11 +115,35 @@ const Navbar = ({ navController, nav }) => {
           <div className="">
             <div className="text-gray-300 h-[100%] flex justify-evenly">
               <ul className=" flex flex-col items-center justify-between">
-                <li className=" px-5 text-lg my-4">Home</li>
-                <li className=" px-5 text-lg my-4">Services</li>
-                <li className=" px-5 text-lg my-4">Projects</li>
-                <li className=" px-5 text-lg my-4">About</li>
-                <li className=" px-5 text-lg my-4">Blog</li>
+                <NavHashLink
+                  to="/#hero"
+                  smooth={true}
+                  onClick={navController}
+                >
+                  <li className=" px-5 text-lg my-4">Home</li>
+                </NavHashLink>
+                <NavHashLink
+                  to="/#skills"
+                  smooth={true}
+                  onClick={navController}
+                >
+                  <li className=" px-5 text-lg my-4">Skills</li>
+                </NavHashLink>
+                <NavHashLink
+                  to="/#projects"
+                  smooth={true}
+                  onClick={navController}
+                >
+                  <li className=" px-5 text-lg my-4">Projects</li>
+                </NavHashLink>
+
+                <NavHashLink
+                  to="/#contacts"
+                  smooth={true}
+                  onClick={navController}
+                >
+                  <li className=" px-5 text-lg my-4">Contact</li>
+                </NavHashLink>
               </ul>
             </div>
             <div className="flex items-center justify-center my-10">
@@ -88,9 +154,11 @@ const Navbar = ({ navController, nav }) => {
           </div>
         ) : (
           <div className="flex items-center justify-between mx-4 duration-100 sm:hidden">
-            <div className="text-left text-xl text-gray-200 ">
-              <h1 className="font-bold align-middle">XFOLIO.</h1>
-            </div>
+            <Link to="/">
+              <div className="text-left text-xl text-gray-200 ">
+                <h1 className="font-bold align-middle">ZFOLIO.</h1>
+              </div>
+            </Link>
             <RxHamburgerMenu
               color="whitesmoke"
               size={19}

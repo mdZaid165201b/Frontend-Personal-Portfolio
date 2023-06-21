@@ -41,7 +41,6 @@ function App() {
         // dispatch(findUser());
 
     }, [dispatch])
-    const navigate = useNavigate();
     const handleNavigation = () => {
         // navigate("admin/login");
         <Navigate to="admin/login"/>
@@ -68,7 +67,7 @@ function App() {
             <Route path="admin/login" element={<AdminLogin/>}/>
             // </>
             // )
-            // }
+            // 
 
 
             <Route path="projects/detail" element={<ProjectDetailPage/>}/>

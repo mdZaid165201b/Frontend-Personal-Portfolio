@@ -3,6 +3,12 @@ import { CgServer, CgBrowser } from "react-icons/cg";
 import { TbBuildingSkyscraper } from "react-icons/tb";
 import { MdOutlineExposure } from "react-icons/md";
 import { GoDeviceMobile } from "react-icons/go";
+import { AiFillHtml5 } from "react-icons/ai";
+import {IoLogoCss3} from "react-icons/io";
+import {SiExpress, SiRedux, SiMongodb} from "react-icons/si";
+import {BiLogoJavascript} from "react-icons/bi"
+import {IoLogoNodejs, IoLogoJavascript, IoLogoReact} from "react-icons/io5";
+
 
 import project1 from "./test.png";
 import project2 from "./test2.png";
@@ -41,6 +47,50 @@ export const servicesData = [
     desc: "Experienced in building robust and efficient Point of Sale (POS) systems using Node.js and modern front-end frameworks like React.",
     icon: <GoDeviceMobile className="text-gray-200 text-4xl" />,
   },
+];
+
+export const skillsData = [
+  {
+    title: "HTML",
+    // desc: "Specializing in building intuitive and visually appealing user interfaces using the latest front-end technologies, including HTML, CSS, JavaScript, and React.",
+    icon: <AiFillHtml5 className="text-gray-200 text-4xl"/>
+  },
+  {
+    title: "CSS",
+    // desc: "Specializing in building scalable and efficient back-end systems using Node.js and databases like MySQL and MongoDB.",
+    icon: <IoLogoCss3 className="text-gray-200 text-4xl" />,
+  },
+  {
+    title: "Javascript",
+    // desc: "Expertise in web scraping and data extraction using Node.js to collect and analyze data from websites.",
+    icon: <IoLogoJavascript className="text-gray-200 text-4xl" />,
+  },
+  {
+    title: "React.JS",
+    // desc: "Experienced in building robust and efficient Point of Sale (POS) systems using Node.js and modern front-end frameworks like React.",
+    icon: <IoLogoReact className="text-gray-200 text-4xl" />,
+  },
+  {
+    title: "Redux-Toolkit",
+    // desc: "Experienced in building robust and efficient Point of Sale (POS) systems using Node.js and modern front-end frameworks like React.",
+    icon: <SiRedux className="text-gray-200 text-4xl" />,
+  },
+  {
+    title: "Node.JS",
+    // desc: "Specializing in automating browser tasks and testing for efficient and effective web development using Node.js.",
+    icon: <IoLogoNodejs className="text-gray-200 text-4xl" />,
+  },
+  {
+    title: "Express.JS",
+    // desc: "Experienced in building robust and efficient Point of Sale (POS) systems using Node.js and modern front-end frameworks like React.",
+    icon: <SiExpress className="text-gray-200 text-4xl" />,
+  },
+  {
+    title: "MongoDB",
+    // desc: "Experienced in building robust and efficient Point of Sale (POS) systems using Node.js and modern front-end frameworks like React.",
+    icon: <SiMongodb className="text-gray-200 text-4xl" />,
+  },
+  
 ];
 
 export const projectsData = [

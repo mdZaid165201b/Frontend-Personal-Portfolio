@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.3",
+    "@sweetalert2/theme-dark": "^5.0.15",
     "@tailwindcss/line-clamp": "^0.4.2",
     "@tailwindcss/typography": "^0.5.9",
     "@testing-library/jest-dom": "^5.16.5",
@@ -22,6 +23,7 @@
     "react-router-dom": "^6.8.1",
     "react-router-hash-link": "^2.4.3",
     "react-scripts": "5.0.1",
+    "react-scroll": "^1.8.9",
     "react-spinners": "^0.13.8",
     "redux-persist": "^6.0.0",
     "sweetalert2": "^11.7.3",
