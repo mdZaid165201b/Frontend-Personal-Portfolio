@@ -4,7 +4,7 @@ import { BsFacebook } from "react-icons/bs";
 
 const Footer = () => {
   return (
-    <footer class="p-4 bg-white rounded-lg shadow md:px-6 md:py-8 dark:bg-gray-900/5 mt-12">
+    <footer class="p-4 bg-white rounded-lg shadow md:px-6 md:py-8 dark:bg-gray-900/5 mt-12 relative bottom-0 w-full">
       <div class="sm:flex sm:items-center sm:justify-between">
         <div className="text-xl text-gray-200 align-middle text-start flex justify-start items-center">
           <h1 className="font-bold align-middle">ZFOLIO.</h1>

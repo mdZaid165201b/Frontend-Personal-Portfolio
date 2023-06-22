@@ -22,7 +22,7 @@ const AllProjects = () => {
         </h1>
       </div>
       <div className="w-screen">
-        <div className="my-0 sm:px-32 flex flex-wrap justify-between">
+        <div className="my-0 sm:px-32 flex flex-wrap justify-center">
           {projects.map((element) => (
             <Project data={element} />
           ))}
