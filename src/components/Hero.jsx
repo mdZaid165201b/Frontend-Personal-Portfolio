@@ -54,10 +54,12 @@ const Hero = ({nav}) => {
                         </div>
                         <div className="flex justify-evenly my-10 w-screen sm:w-[400px]">
                             {/* bg-gradient-to-br from-green-700 to-sky-700 */}
+                            <Link to="https://www.linkedin.com/in/muhammadzaid8920/" target="_blank">
                             <button
                                 className="bg-gradient-to-br from-green-700 to-sky-700 text-white rounded-full p-2 sm:p-3 tracking-wide  hover:from-sky-800 hover:to-green-600 hover:duration-100 shadow-lg shadow-black/40">
                                 GET IN TOUCH
                             </button>
+                            </Link>
                             <Link to="AllProjects">
                                 <button
                                     className="text-white rounded-full p-2 sm:p-3 tracking-wide bg-gradient-to-br from-green-700 to-sky-700  duration-75 hover:from-sky-800 hover:to-green-600 shadow-lg shadow-black/40">
