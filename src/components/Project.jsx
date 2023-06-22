@@ -11,7 +11,7 @@ const Project = ({ data }) => {
       <div className="flex justify-center  bg-gradient-to-br from-emerald-600 to-cyan-500  w-[320px]  sm:max-w-[480px] sm:max-h-[280px] h-[200px] rounded-md p-[2.0px] mt-14 mx-4 shadow-md shadow-gray-700 hover:scale-110 transition-all hover:duration-[300ms,500ms]" key={data._id}>
         <div className=" w-full h-full rounded-lg hover:ease-in hover:duration-[300ms,500ms] overflow-hidden transition-transform relative cursor-pointer">
           <div className=" w-full h-full ">
-            <img src={data.coverImage["url"]} alt="proj" className="w-full h-full rounded-md overflow-clip " />
+            <img src={data.coverImage["url"]} alt="proj" className="w-full h-full rounded-md object-cover overflow-clip " />
             {/* <div className="h-full w-full absolute z-10 top-0 left-0 text-red-700">HEELO</div> */}
           </div>
           <div
