@@ -19,7 +19,6 @@ const Contact = () => {
 
     const submitMessage = async () => {
         setLoading(true)
-        console.log(process.env.SERVICE_ID, process.env.TEMPLATE_ID)
         try {
             if (validateInput({fromName, message, email, toName})) {
                 const templateParams = {
@@ -29,7 +28,6 @@ const Contact = () => {
                     from_email: email,
                 };
                 const response = await emailjs.send("service_7nkbqwi", "template_7d4rpa2", templateParams, 'DcSaQssavfkDP9nb3')
-                console.log(response)
                 setLoading(false)
                 setFromName("");
                 setEmail("");

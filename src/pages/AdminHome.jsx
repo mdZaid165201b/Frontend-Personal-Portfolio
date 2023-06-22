@@ -1,7 +1,6 @@
 import React, {useEffect, useState} from "react";
 import {OverviewData} from "../assets/data";
 import ProjectTable from "../components/ProjectTable";
-import TodoListOverview from "../components/TodoListOverview";
 import {Link} from "react-router-dom";
 import {useSelector} from "react-redux";
 
@@ -22,7 +21,6 @@ const AdminHome = () => {
         else setFilteredProjects(projects)
     }
     const OverviewFiltered = () => {
-        console.log({projects})
         const pendingProjects = projects.filter(current => current.status === "Pending");
         setPendingProject(pendingProjects.length)
         const activeProjects = projects.filter(current => current.status === "Active");
@@ -68,7 +66,6 @@ const AdminHome = () => {
     projectFileter()
     }, [projects.length])
 
-    console.log(filteredProject)
     return (
         <div className=" w-full h-full text-white p-4 ">
             <div className="mb-7 flex justify-start px-9">
@@ -107,22 +104,6 @@ const AdminHome = () => {
                         </Link>
                     </div>
                 </div>
-                {/*<div className="">*/}
-                {/*    <div className=" flex flex-col justify-center mx-12">*/}
-                {/*        <div className="text-gray-200 my-4">*/}
-                {/*            <h1 className="text-2xl">Todo List</h1>*/}
-                {/*        </div>*/}
-                {/*        <TodoListOverview/>*/}
-                {/*    </div>*/}
-                {/*    <div className="flex justify-center">*/}
-                {/*        <Link to="/admin/dashboard/todos">*/}
-                {/*            <button*/}
-                {/*                className="bg-green-700 flex justify-center text-center p-3 rounded-md tracking-wider hover:bg-green-800 duration-100">*/}
-                {/*                View All*/}
-                {/*            </button>*/}
-                {/*        </Link>*/}
-                {/*    </div>*/}
-                {/*</div>*/}
             </div>
         </div>
     );

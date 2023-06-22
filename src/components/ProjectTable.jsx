@@ -18,7 +18,6 @@ const ProjectTable = ({projectsData}) => {
     const [openModal, setModal] = useState(false);
     const [isEdit, setEdit] = useState(false);
     const [editData, setEditData] = useState(null);
-    console.log("edit data",editData)
     const handleDelete = (id) => {
         dispatch(deleteProject({id, token}))
         if (error.success === false) {

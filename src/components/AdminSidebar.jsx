@@ -49,7 +49,6 @@ const AdminSidebar = () => {
         persistor.purge({key: 'auth'});
         navigate("/admin/login");
     }
-    console.log({user})
     return (
         <div className=" bg-black/25  shadow-xl shadow-slate-900  h-screen min-w-[250px] flex flex-col">
             <div className="w-full my-9">

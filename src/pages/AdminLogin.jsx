@@ -34,16 +34,8 @@ const AdminLogin = () => {
     const navigate = useNavigate();
     const {user, loading, error, token} = useSelector((state) => state.auth);
     const allUserData = useSelector((state) => state.auth);
-    // console.log(allUserData);
     const [userState, setUser] = useState(user ? user : null);
     const handleLogin = () => {
-        // if (event.key === "Enter" || event.code === 13) {
-        //     dispatch(loginUser({email: data.email, password: data.password}));
-        //     if (error && loading) {
-        //         navigate("/admin/dashboard/home");
-        //     }
-        // }
-        // console.log(event)
         dispatch(loginUser({email: data.email, password: data.password}));
         if (error && loading) {
             navigate("/admin/dashboard/home");

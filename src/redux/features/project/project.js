@@ -11,8 +11,6 @@ let initialState = {
 
 export const createProject = createAsyncThunk("profile/update", async (inputObject, thunkAPI) => {
     try {
-console.log(inputObject.formData);
-        console.log(inputObject.token);
         const { data } = await axios.post(`${API}create-project`, inputObject.formData, {
             headers: {
                 token: "Bearer " + inputObject.token
@@ -45,7 +43,6 @@ export const deleteProject = createAsyncThunk("project/delete", async({ id, toke
                 token: "Bearer " + token
             }
         })
-        console.log( data )
         return { data, id }
     }
     catch (err) {
@@ -56,9 +53,7 @@ export const deleteProject = createAsyncThunk("project/delete", async({ id, toke
 export const fetchProjects = createAsyncThunk("projects" ,async(thunkAPI) => {
     try{
         const { data } = await axios.get(`${API}get-projects`);
-
         const { projects } = data;
-        console.log(projects)
         return projects;
     }
     catch (err) {
@@ -87,7 +82,6 @@ export const projectSlice = createSlice({
         }, [createProject.fulfilled]: (state, action) => {
             state.loading = false;
             state.projects.push(action.payload.data);
-            console.log(action.payload);
         }, [createProject.rejected]: (state, action) => {
             state.loading = false
             state.error = action.payload
@@ -110,11 +104,9 @@ export const projectSlice = createSlice({
             state.loading = true;
         },
         [deleteProject.fulfilled]: (state, action) => {
-            console.log(action.payload.id)
             state.loading = false;
             const updatedProjects = state.projects.filter(current => current._id !== action.payload.id)
             state.projects = updatedProjects
-            console.log(updatedProjects)
         },
         [deleteProject.rejected]: (state, action) => {
             state.loading = false

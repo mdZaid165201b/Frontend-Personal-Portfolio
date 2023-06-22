@@ -1,5 +1,4 @@
 import React, {useState} from "react";
-import profImg from "../assets/img.jpg";
 import { BiMessageSquareAdd } from "react-icons/bi";
 import Modal from "../components/Modal";
 import { useSelector } from "react-redux"
@@ -7,20 +6,12 @@ import { useSelector } from "react-redux"
 const AdminProfile = () => {
   const [openModal, setModal] = useState(false);
   const { user }  = useSelector((state) => state.auth);
-console.log(user)
 
   return (
     <>
       <div className="w-full">
         <div className=" flex justify-center">
           <div className="flex flex-col">
-            {/*<div className="w-[180px] h-[180px] rounded-full relative my-4">*/}
-            {/*  <div className="border-4 border-x-emerald-900 border-y-cyan-900 w-[180px] h-[180px] rounded-full flex items-center">*/}
-            {/*    <img*/}
-            {/*      src={user.remaining.profilePic ? user.remaining.profilePic["url"] : profImg}*/}
-            {/*      className="rounded-full filter contrast-125 relative inset-0 border-4 border-x-emerald-900 border-y-cyan-900 object-cover"*/}
-            {/*    />*/}
-            {/*  </div>*/}
             <img
                 className="rounded-full filter contrast-125 object-cover bottom w-[160px] h-[160px] border-4 border-x-emerald-900 border-y-cyan-900 bg-cover"
                 src={user.remaining.profilePic["url"]}

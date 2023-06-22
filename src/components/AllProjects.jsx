@@ -9,7 +9,6 @@ const AllProjects = () => {
   const [nav, setNav] = useState(false);
   const handleNav = () => {
     setNav(!nav);
-    console.log(nav);
   };
   const {projects} = useSelector(state => state.project);
   return (

@@ -10,7 +10,6 @@ import moment from "moment";
 import {updateProfile} from "../redux/features/profile/profile";
 
 const Modal = ({isVisible, onClose, data}) => {
-    console.log("modal data for test : ", data)
     const [editableData, setEditData] = useState(null);
 
     const editor = useRef(null);
@@ -24,7 +23,6 @@ const Modal = ({isVisible, onClose, data}) => {
         deadline: editableData !== null ? editableData.deadline : "",
         projectLink: editableData !== null ? editableData.projectLink : "",
     })
-    // console.log("test projectData", projectData)
     const [files, setFiles] = useState([]);
     const dispatch = useDispatch();
     useEffect(() => {
@@ -35,8 +33,6 @@ const Modal = ({isVisible, onClose, data}) => {
     }, [data])
     useEffect(() => {
         if (editableData) {
-            // console.log("useEffect called")
-            // console.log("useEffect data : ", editableData)
 
             setProjectData({
                 title: editableData.projectName,
@@ -45,7 +41,6 @@ const Modal = ({isVisible, onClose, data}) => {
                 projectLink: editableData.projectLink,
                 deadline: moment(editableData.deadline).format("YYYY-MM-DD")
             })
-            // console.log("project Data use Effect", projectData)
         }
     }, [editableData])
     const validateInput = (content, files, projectInfo) => {

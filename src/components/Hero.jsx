@@ -11,7 +11,6 @@ const Hero = ({ nav }) => {
     try {
       setLoading(true);
       const { data } = await axios.get(`${API}user-info`);
-      console.log(data);
       setUser(data.user);
       setLoading(false);
     } catch (e) {
@@ -21,7 +20,7 @@ const Hero = ({ nav }) => {
   useEffect(() => {
     fetchUser();
   }, []);
-  if (!user) return <div>loading...</div>;
+  if (!user) return <center><HashLoader color="#047857" /></center>;
   return (
     !nav && (
       <div className="my-10 sm:my-28" id="hero">

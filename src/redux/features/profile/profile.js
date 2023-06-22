@@ -13,10 +13,6 @@ let initialState = {
 
 export const updateProfile = createAsyncThunk("profile/update", async (inputObject, {dispatch}, thunkAPI) => {
     try {
-        console.log(inputObject.formData.get("image"))
-        console.log(inputObject.formData.get("firstName"))
-        console.log(inputObject.formData.get("lastName"))
-        console.log(inputObject.formData.get("tagLine"))
         const { data } = await axios.put(`${API}update-user/${inputObject.uid}`, inputObject.formData, {
             headers: {
                 token: "Bearer " + inputObject.token
@@ -58,7 +54,6 @@ export const profileSlice = createSlice({
             state.loading = false;
             state.userProfile = action.payload;
         }, [updateProfile.rejected]: (state, action) => {
-            console.log(action.payload);
             state.loading = false
             state.error = action.payload
         },

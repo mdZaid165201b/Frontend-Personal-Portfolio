@@ -1,4 +1,4 @@
-import {useEffect, useState} from "react";
+import {useState} from "react";
 import Navbar from "../components/Navbar";
 import Hero from "../components/Hero";
 import Services from "../components/Services";
@@ -11,9 +11,7 @@ const Home = ({user}) => {
     const [nav, setNav] = useState(false);
     const handleNav = () => {
         setNav(!nav);
-        console.log(nav);
     };
-    console.log(user)
     return (
         <>
             <div className="w-screen">

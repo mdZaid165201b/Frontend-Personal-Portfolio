@@ -10,15 +10,10 @@ import Layout from "./pages/Layout";
 import AdminHome from "./pages/AdminHome";
 import AdminProjects from "./pages/AdminProjects";
 import AdminProfile from "./pages/AdminProfile";
-import AdminTodos from "./pages/AdminTodos";
 import ProjectDetailPage from "./components/ProjectDetailPage";
 import {useSelector} from "react-redux"
 import {fetchProjects} from "./redux/features/project/project";
-import {findUser} from "./redux/features/profile/profile";
 import {useDispatch} from "react-redux";
-import axios from "axios";
-import {API} from "./constants";
-import {setUser} from "./redux/features/profile/profile";
 
 
 const SecureRoute = ({children}) => {
@@ -35,14 +30,10 @@ function App() {
     const dispatch = useDispatch()
     const {user} = useSelector((state) => state.auth);
     const userInfo = useSelector((state) => state.profile);
-    const [userData, setUserData] = useState(null);
     useEffect(() => {
         dispatch(fetchProjects());
-        // dispatch(findUser());
-
     }, [dispatch])
     const handleNavigation = () => {
-        // navigate("admin/login");
         <Navigate to="admin/login"/>
     }
     console.log(userInfo.user);
@@ -78,7 +69,6 @@ function App() {
                         <Route index path="home" element={<AdminHome/>}/>
                         <Route path="projects" element={<AdminProjects/>}/>
                         <Route path="profile" element={<AdminProfile/>}/>
-                        <Route path="todos" element={<AdminTodos/>}/>
                         {/* <Route path="services" element={<AdminServices />} /> */}
                     </Route>
                 ) : handleNavigation()

@@ -19,7 +19,6 @@ export const registerUser = createAsyncThunk("user/register", async ({firstName,
             email: email,
             password: password,
         });
-        console.log(data)
         return data;
     } catch (err) {
         console.log(err)
@@ -34,7 +33,6 @@ export const loginUser = createAsyncThunk("user/login", async ({email, password}
         });
         return data;
     } catch (err) {
-        // console.log("login error : ",err.response.data)
         return thunkAPI.rejectWithValue(err.response.data)
     }
 })

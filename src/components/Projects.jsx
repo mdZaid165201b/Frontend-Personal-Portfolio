@@ -5,7 +5,6 @@ import {useSelector} from "react-redux";
 
 const Projects = ({ nav }) => {
     const {projects} = useSelector((state) => state.project);
-    console.log(projects)
   //   const [projHover, setProjHover] = useState(false);
   return (
     !nav && (

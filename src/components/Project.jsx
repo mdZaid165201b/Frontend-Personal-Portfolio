@@ -4,7 +4,6 @@ import {AiOutlineLink} from "react-icons/ai"
 
 
 const Project = ({ data }) => {
-  console.log(data)
   const [projHover, setProjHover] = useState(false);
   return (
     <Link to="/projects/detail" state={{data: data}}>

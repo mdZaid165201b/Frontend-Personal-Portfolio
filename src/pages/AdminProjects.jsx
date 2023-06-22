@@ -1,17 +1,14 @@
-import React, {useState, useEffect} from "react";
+import React, {useState} from "react";
 import ProjectTable from "../components/ProjectTable";
 import {BiMessageSquareAdd} from "react-icons/bi";
 import AddProjectModal from "../components/AddProjectModal"
-import {useSelector, useDispatch} from "react-redux";
-import {fetchProjects} from "../redux/features/project/project";
+import {useSelector} from "react-redux";
 import {RotateLoader} from "react-spinners";
 
 
 const AdminProjects = () => {
-    const dispatch = useDispatch();
     const {projects, loading} = useSelector((state) => state.project);
     const [openModal, setModal] = useState(false);
-    console.log(projects)
     return (
         <>
             <div className="text-gray-200">

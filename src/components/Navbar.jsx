@@ -8,11 +8,6 @@ import { NavHashLink } from "react-router-hash-link";
 import Resume from "../assets/resume.pdf";
 
 const Navbar = ({ navController, nav }) => {
-  // const [nav, setNav] = useState(false);
-  // const handleNav = () => {
-  //   setNav(!nav);
-  //   console.log(nav);
-  // };
   return (
     <>
       <div className="hidden sm:flex  min-w-full bg-[#1a1a18] h-[65px] items-center justify-between px-10 z-40 top-0 fixed shadow-lg">

@@ -1,10 +1,9 @@
-import {configureStore,combineReducers ,getDefaultMiddleware} from "@reduxjs/toolkit";
+import {configureStore,combineReducers} from "@reduxjs/toolkit";
 import authReducer from "../features/auth/auth";
 import profileReducer from "../features/profile/profile";
 import { persistReducer, persistStore } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 import projectReducer from "../features/project/project";
-import config from "tailwindcss/defaultConfig";
 const persistConfig = {
     key: "auth",
     storage
