@@ -25,7 +25,7 @@ const Projects = ({ nav }) => {
           {projectsData.length >= 6 ? (
             <div className="flex justify-center mt-10">
               <Link to="AllProjects">
-                <button className="p-3 bg-gradient-to-br from-green-800 to-sky-700 text-gray-300 rounded-md tracking-wider hover:from-sky-800 hover:to-green-600">
+                <button className="p-3 bg-gradient-to-br from-green-800 to-sky-700 text-gray-300 rounded-md shadow-lg shadow-black/40 tracking-wider  hover:from-sky-800 hover:to-green-600">
                   View More
                 </button>
               </Link>
