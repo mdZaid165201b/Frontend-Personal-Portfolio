@@ -1,4 +1,4 @@
-import {useState} from "react";
+import {useState, useEffect} from "react";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
 // import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
@@ -17,7 +17,9 @@ const ProjectDetailPage = () => {
     const handleNav = () => {
         setNav(!nav);
     };
-
+    useEffect(() => {
+        window.scrollTo({top: 0, left: 0, behavior: 'instant'});
+    }, [])
 
     const article = '<article class="prose lg:prose-xl my-11 text-gray-200">\n    <h3 class="text-gray-200">Garlic bread with cheese: What the science tells us</h3>\n    <p>\n      For years parents have espoused the health benefits of eating\n      garlic bread with cheese to their children, with the food earning\n      such an iconic status in our culture that kids will often dress up\n      as warm, cheesy loaf for Halloween.\n    </p>\n    <p> \n      But a recent study shows that the celebrated appetizer may be\n      linked to a series of rabies cases springing up around the\n      country.\n    </p>\n  </article>';
     return (<>
@@ -60,7 +62,7 @@ const ProjectDetailPage = () => {
                     </div>
                 </div>
                     <hr className="border-2 border-gray-700"/>
-                <div className="text-gray-200 text-xl flex ">
+                <div className="text-gray-200 text-xl flex w-full border border-red-500 ">
                     <div
                         className=" rounded-md p-6 prose lg:prose-lg text-white"
                         dangerouslySetInnerHTML={{__html: data.description}}
