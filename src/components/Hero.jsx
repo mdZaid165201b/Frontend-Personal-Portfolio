@@ -34,7 +34,7 @@ const Hero = ({ nav }) => {
   };
   if (!user)
     return (
-      <center>
+      <center className="sm:my-28">
         <HashLoader color="#047857" />
       </center>
     );
